@@ -2,7 +2,14 @@
   <div class="home">
     <h1>首页</h1>
     <el-button @click="dialogVisible = true">返回</el-button>
-    <el-dialog title="提示" :visible.sync="dialogVisible" width="30%" :before-close="handleClose" center>
+    <el-dialog
+      title="提示"
+      :visible.sync="dialogVisible"
+      width="30%"
+      :before-close="handleClose"
+      @close="quitToMain"
+      center
+    >
       <span>点击返回按钮，返回至欢迎页</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">取 消</el-button>
@@ -19,18 +26,22 @@ export default {
     msg: String
   },
   data() {
-      return {
-          dialogVisible: false
-      }
+    return {
+      dialogVisible: false
+    };
   },
   methods: {
-      handleClose (done) {
-          this.$confirm('确认返回到欢迎页？')
-          .then(_ => {
-this.$router.push("main");
-          })
-          .catch(_ => {});
-      }
+    handleClose(done) {
+      var _this = this;
+      this.$confirm("确认返回到欢迎页？")
+        .then(() => {
+          _this.$router.push("main");
+        })
+        .catch(() => {});
+    },
+    quitToMain() {
+      this.$router.push("main");
+    }
   }
 };
 </script>
