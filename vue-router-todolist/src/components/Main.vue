@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <h1>欢迎页面</h1>
-    <button @click="beginApp">开始使用</button>
+    <el-button @click="beginApp">开始使用</el-button>
   </div>
 </template>
 
