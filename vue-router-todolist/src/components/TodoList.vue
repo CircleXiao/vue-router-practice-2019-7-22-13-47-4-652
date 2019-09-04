@@ -1,6 +1,6 @@
 <template>
   <div class="todolist">
-      <h1>首页</h1>
+      <h1>todolist</h1>
   </div>
 </template>
 
